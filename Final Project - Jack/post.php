@@ -22,8 +22,9 @@ if (isset($_POST["btnSubmit"])){
     // Sanatize data coming from form
     
     $name = htmlentities($_POST["fname"],ENT_QUOTES,"UTF-8");
-	$title = htmlentities($_POST["title"],ENT_QUOTES,"UTF-8");
+	  $title = htmlentities($_POST["title"],ENT_QUOTES,"UTF-8");
     $link = htmlentities($_POST["link"],ENT_QUOTES,"UTF-8");
+    $result = "";
                       
 }
 ?>
@@ -41,7 +42,12 @@ if (isset($_POST["btnSubmit"])){
 		<?php
 		if (isset($_POST["btnSubmit"])){
 			 print("<h6>" . $name . " posted:</h6>");
-			 print("<h3><a href='" . $link . "'>" . $title . "</a></h3>");
+       $result = substr($link, 0, 4);
+       if ($result == "http"){
+			   print("<h3><a href='" . $link . "'>" . $title . "</a></h3>");
+       }else{
+         print("<h3><a href='http://" . $link . "'>" . $title . "</a></h3>");
+       }
 		}
 		?>
   </body>
