@@ -29,12 +29,13 @@ if (isset($_POST["btnSubmit"])){
 }
 ?>
   <body>
+    <?php include('connect.php'); ?>
   		<h1>Post Something</h1>
 		<?php include('nav.php'); ?>
 		
 		<form action="<? print $urlPath; ?>" method="post">
   			  Name: <input type="text" name="fname"><br>
-			  Title: <input type="text" name="title"><br>
+			    Title: <input type="text" name="title"><br>
   			  Link: <input type="text" name="link" size="75"><br>
   			  <input type="submit" name="btnSubmit" value="Submit" method="post" action="">
 		</form>
