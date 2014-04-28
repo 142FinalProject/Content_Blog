@@ -30,8 +30,6 @@ if (isset($_POST["btnSubmit"])){
 	<div class="hero-unit">
  
   		<h2>Post Something</h2>
-  		
-		<?php include('includes/nav.php'); ?>
 		
 		<form action="<? print $urlPath; ?>" method="post">
   			  Name: <input type="text" name="fname"><br>
