@@ -5,7 +5,7 @@ class DB {
  
     protected $db_name = 'BMCOMBER_CS142Final';
     protected $db_user = 'bmcomber_admin';
-    protected $db_pass = 'FIr0DWsCAxs1';
+    protected $db_pass = 'ourDB142';
     protected $db_host = 'webdb.uvm.edu';
  
     //open a connection to the database. Make sure this is called

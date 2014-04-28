@@ -28,11 +28,10 @@ if (isset($_POST["btnSubmit"])){
 	<?php include 'includes/nav.php'; ?>
 	
 	<div class="hero-unit">
-    	<h2>Welcome to blog Diggity</h2>
  
-   	 	<?php include('connect.php'); ?>
-  		<h1>Post Something</h1>
-		<?php include('nav.php'); ?>
+  		<h2>Post Something</h2>
+  		
+		<?php include('includes/nav.php'); ?>
 		
 		<form action="<? print $urlPath; ?>" method="post">
   			  Name: <input type="text" name="fname"><br>

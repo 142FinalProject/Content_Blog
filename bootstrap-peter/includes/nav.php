@@ -11,10 +11,10 @@
 				?>
 
 				<?php 
-				if(basename($_SERVER['PHP_SELF'])=="#"){
+				if(basename($_SERVER['PHP_SELF'])=="post.php"){
     				print '<li class="active"><a href="#">Post</a></li>';
 				} else {
-   				    print '<li><a href="#">Post</a></li>';
+   				    print '<li><a href="post.php">Post</a></li>';
 				} 
 				?>
 
