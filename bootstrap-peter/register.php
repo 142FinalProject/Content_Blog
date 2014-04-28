@@ -36,7 +36,7 @@ if(isset($_POST['submit-form'])) {
 	    $error .= "Passwords do not match.<br/> \n\r";
 	    $success = false;
 	}
-
+        
 	if($success)
 	{
 	    //prep the data for saving in a new user object
