@@ -14,7 +14,7 @@ class UserTools {
 	{
 
 		$hashedPassword = md5($password);
-		$result = mysql_query("SELECT * FROM users WHERE username = '$username' AND password = '$hashedPassword'");
+		$result = mysql_query("SELECT * FROM tblUser WHERE username = '$username' AND password = '$hashedPassword'");
 
 		if(mysql_num_rows($result) == 1)
 		{
