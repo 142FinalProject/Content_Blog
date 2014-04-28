@@ -18,7 +18,7 @@ require_once 'includes/global.inc.php';
 	<?php include 'includes/nav.php'; ?>
 	
 	<div class="hero-unit">
-    	<h2>Welcome to blog Diggity</h2>
+    	<h2>Welcome to Blog Diggity</h2>
  
    	 	<?php if(isset($_SESSION['logged_in'])) : ?>
 		<?php $user = unserialize($_SESSION['user']); ?>
