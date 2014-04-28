@@ -1,10 +1,10 @@
-&lt;?php
+<?php
 //logout.php
 require_once 'includes/global.inc.php';
 
 $userTools = new UserTools();
-$userTools-&gt;logout();
+$userTools->logout();
 
 header("Location: index.php");
 
-?&gt;
+?>
