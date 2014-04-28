@@ -5,7 +5,7 @@ require_once 'DB.class.php';
 
 
 class User {
-
+        public $id;
 	public $username;
 	public $hashedPassword;
 	public $email;
@@ -13,7 +13,8 @@ class User {
 	//Constructor is called whenever a new object is created.
 	//Takes an associative array with the DB row as an argument.
 	function __construct($data) {
-		$this->username = (isset($data['username'])) ? $data['username'] : "";
+		$this->id = (isset($data['id'])) ? $data['id'] : "";
+                $this->username = (isset($data['username'])) ? $data['username'] : "";
 		$this->hashedPassword = (isset($data['password'])) ? $data['password'] : "";
 		$this->email = (isset($data['email'])) ? $data['email'] : "";
 	}
@@ -33,7 +34,7 @@ class User {
 			);
 			
 			//update the row in the database
-			$db->update($data, 'tblUser', 'id = '.$this->username);
+			$db->update($data, 'tblUser', 'id = '.$this->id);
 		}else {
 		//if the user is being registered for the first time.
 			$data = array(

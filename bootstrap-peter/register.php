@@ -29,6 +29,7 @@ if(isset($_POST['submit-form'])) {
 	{
 	    $error .= "That username is already taken.<br/> \n\r";
 	    $success = false;
+            
 	}
 
 	//check to see if passwords match
@@ -55,7 +56,7 @@ if(isset($_POST['submit-form'])) {
 
 	    //redirect them to a welcome page
 	    header("Location: welcome.php");
-
+            
 	}
 
 }
