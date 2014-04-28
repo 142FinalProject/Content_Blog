@@ -1,3 +1,4 @@
+<?php require_once 'includes/global.inc.php'; ?>
 <html>
 <head>
 	<title>Post</title>
