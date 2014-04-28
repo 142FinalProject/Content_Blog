@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 //UserTools.class.php
 
 require_once 'User.class.php';
@@ -52,11 +52,11 @@ class UserTools {
 	public function get($id)
 	{
 		$db = new DB();
-		$result = $db-&gt;select('users', "id = $id");
+		$result = $db->select('users', "id = $id");
 		
 		return new User($result);
 	}
 	
 }
 
-?&gt;
+?>
