@@ -13,7 +13,7 @@ if (isset($_POST["btnSubmit"])){
     // Sanatize data coming from form
     
     $name = htmlentities($_POST["fname"],ENT_QUOTES,"UTF-8");
-	  $title = htmlentities($_POST["title"],ENT_QUOTES,"UTF-8");
+	$title = htmlentities($_POST["title"],ENT_QUOTES,"UTF-8");
     $link = htmlentities($_POST["link"],ENT_QUOTES,"UTF-8");
     $result = "";
                       
@@ -31,24 +31,38 @@ if (isset($_POST["btnSubmit"])){
  
   		<h2>Post Something</h2>
 		
-		<form action="<? print $urlPath; ?>" method="post">
-  			  Name: <input type="text" name="fname"><br>
-			    Title: <input type="text" name="title"><br>
-  			  Link: <input type="text" name="link" size="75"><br>
-  			  <input type="submit" name="btnSubmit" value="Submit" method="post" action="">
-		</form>
-		
-		<?php
-		if (isset($_POST["btnSubmit"])){
-			print("<h6>" . $name . " posted:</h6>");
-        $result = substr($link, 0, 4);
-        if ($result == "http"){
-			print("<h3><a href='" . $link . "'>" . $title . "</a></h3>");
-        }else{
-        	print("<h3><a href='http://" . $link . "'>" . $title . "</a></h3>");
-        }
+	<?php
+		if(isset($_SESSION['logged_in'])){
+
+		$user = unserialize($_SESSION['user']);
+
+		print("<form action=" .  $urlPath . " method='post'>
+				Title: <input type='text' name='title'><br>
+  				Link: <input type='text' name='link' size='75'><br>
+  				<input type='submit' name='btnSubmit' value='Submit' method='post' action=''>
+				</form>");
+
+			if (isset($_POST["btnSubmit"])){
+
+				print("<h6>" . $user . " posted:</h6>");
+        	    $result = substr($link, 0, 4);
+
+        		if ($result == "http"){
+
+					print("<h3><a href='" . $link . "'>" . $title . "</a></h3>");
+
+        		}else{
+
+        			print("<h3><a href='http://" . $link . "'>" . $title . "</a></h3>");
+
+        		}
+			}
+		}else{
+
+			print("<p>You must be logged in to post. <a href='login.php'>Log In</a> |  <a href='register.php'>Register</a></p>");
 		}
-		?>
+
+	?>
  
  	</div>
 	</div>	<!--Main container-->
