@@ -38,7 +38,7 @@ class UserTools {
 	//Check to see if a username exists.
 	//This is called during registration to make sure all user names are unique.
 	public function checkUsernameExists($username) {
-		$result = mysql_query("select id from users where username='$username'");
+		$result = mysql_query("SELECT username from tblUser where username='$username'");
     	if(mysql_num_rows($result) == 0)
     	{
 			return false;
