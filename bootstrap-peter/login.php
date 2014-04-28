@@ -32,17 +32,7 @@ if(isset($_POST['submit-login'])) {
 	<div class="container">
 	<h1><a href="#">Blog Diggity!</a></h1>
 
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-				<ul class="nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="#">Post</a></li>
-					<li class="active"><a href="#">Account</a></li>
-				</ul>
-				</div>
-			</div>
-		</div>	
+	<?php include 'includes/nav.php'; ?>
 
 	<div class="hero-unit">
     	<h2>Please Log In</h2>

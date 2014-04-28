@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 //register.php
 
 require_once 'includes/global.inc.php';
@@ -25,15 +25,15 @@ if(isset($_POST['submit-form'])) {
 
 	//validate that the form was filled out correctly
 	//check to see if user name already exists
-	if($userTools-&gt;checkUsernameExists($username))
+	if($userTools->checkUsernameExists($username))
 	{
-	    $error .= "That username is already taken.&lt;br/&gt; \n\r";
+	    $error .= "That username is already taken.<br/> \n\r";
 	    $success = false;
 	}
 
 	//check to see if passwords match
 	if($password != $password_confirm) {
-	    $error .= "Passwords do not match.&lt;br/&gt; \n\r";
+	    $error .= "Passwords do not match.<br/> \n\r";
 	    $success = false;
 	}
 
@@ -48,10 +48,10 @@ if(isset($_POST['submit-form'])) {
 	    $newUser = new User($data);
 
 	    //save the new user to the database
-	    $newUser-&gt;save(true);
+	    $newUser->save(true);
 
 	    //log them in
-	    $userTools-&gt;login($username, $password);
+	    $userTools->login($username, $password);
 
 	    //redirect them to a welcome page
 	    header("Location: welcome.php");
@@ -62,22 +62,42 @@ if(isset($_POST['submit-form'])) {
 
 //If the form wasn't submitted, or didn't validate
 //then we show the registration form again
-?&gt;
+?>
 
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;Registration&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;?php echo ($error != "") ? $error : ""; ?&gt;
-	&lt;form action="register.php" method="post"&gt;
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
+</head>
+<body>
+<!--This is the bootstrap framework for our site, subject to change, obvioiusly.  replace hrefs leading to "#" with their actual targets as we build them"-->
 
-	Username: &lt;input type="text" value="&lt;?php echo $username; ?&gt;" name="username" /&gt;&lt;br/&gt;
-	Password: &lt;input type="password" value="&lt;?php echo $password; ?&gt;" name="password" /&gt;&lt;br/&gt;
-	Password (confirm): &lt;input type="password" value="&lt;?php echo $password_confirm; ?&gt;" name="password-confirm" /&gt;&lt;br/&gt;
-	E-Mail: &lt;input type="text" value="&lt;?php echo $email; ?&gt;" name="email" /&gt;&lt;br/&gt;
-	&lt;input type="submit" value="Register" name="submit-form" /&gt;
+	<div class="container">
+	<h1><a href="#">Blog Diggity!</a></h1>
 
-	&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+	<?php include 'includes/nav.php'; ?>
+	
+	<div class="hero-unit">
+    	<h2>Register</h2>
+
+		<?php echo ($error != "") ? $error : ""; ?>
+
+		<form action="register.php" method="post">
+
+			Username: <input type="text" value="<?php echo $username; ?>" name="username" /><br/>
+			Password: <input type="password" value="<?php echo $password; ?>" name="password" /><br/>
+			Password (confirm): <input type="password" value="<?php echo $password_confirm; ?>" name="password-confirm" /><br/>
+			E-Mail: <input type="text" value="<?php echo $email; ?>" name="email" /><br/>
+			<input type="submit" value="Register" name="submit-form" />
+
+		</form>
+ 	</div>
+
+	</div>	<!--Main container-->
+
+		<!--Import jquery and bootstrap-->
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+
+</body>
+</html>
