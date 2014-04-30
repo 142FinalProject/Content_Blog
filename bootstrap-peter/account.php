@@ -41,7 +41,7 @@ require_once 'includes/global.inc.php';
  				
  		
  		<div class="posted">
-                    <p>Your Posts:</p>	
+                    <h4>Your Posts:</h4>	
 		<!--This is where posts are formatted to be displayed, populate variables with sql queries-->
 
 		<?php
@@ -80,7 +80,7 @@ require_once 'includes/global.inc.php';
       		$res = mysql_query("SELECT * FROM tblPost WHERE userID='$user->id'");
 	  
       		while($row=mysql_fetch_array($res)){
-	  			print("<h6>Posted on: </h6>");
+	  			print("<h6>Posted on " . $row["date"] . ":</h6>");
          		$result = substr($row["link"], 0, 4);
          		if ($result == "http"){
 					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");

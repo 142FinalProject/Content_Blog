@@ -52,10 +52,8 @@ require_once 'includes/global.inc.php';
 		// create the PDO object
 		try {     
     		$datab=dbConnect($dbName);
-    		//echo '<p>You are connected to the database!</p>';
 		} catch (PDOException $e) {
     		$error_message = $e->getMessage();
-    		//echo "<p>A An error occurred while connecting to the database: $error_message </p>";
 		}
 
 		//initialize php variables used in the form
@@ -68,16 +66,13 @@ require_once 'includes/global.inc.php';
 		if(isset($_POST['btnSubmit'])) { 
 
 			//retrieve the $_POST variables
-			//$username = $_POST['username'];
 			$title = $_POST['title'];
 			$link = $_POST['link'];
+			$date = date("m.d.y");
 
 			try { 
-
-            	//$datab->beginTransaction();
 		
-		    	//$sql = "INSERT INTO tblPost (userID, username, title, link) VALUES ($userID, '$username', '$title', '$link')";
-		    	$sql = "INSERT INTO `BMCOMBER_CS142Final`.`tblPost` (`postID`, `userID`, `username`, `title`, `link`) VALUES (NULL, '$userID', '$username', '$title', '$link')";
+		    	$sql = "INSERT INTO `BMCOMBER_CS142Final`.`tblPost` (`postID`, `userID`, `username`, `title`, `link`, `date`) VALUES (NULL, '$userID', '$username', '$title', '$link', '$date')";
 		    	
             	$stmt = $datab->prepare($sql);
         		echo $sql;
@@ -86,7 +81,6 @@ require_once 'includes/global.inc.php';
             	$primaryKey = $datab->lastInsertId(); 
 
             	// all sql statements are done so lets commit to our changes 
-            	//$dataEntered = $datab->commit(); 
 
         	} catch (PDOExecption $e) { 
             	$datab->rollback(); 
