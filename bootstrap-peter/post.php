@@ -1,7 +1,7 @@
 <?php 
 //post.php
 
-//require_once 'includes/global.inc.php';
+require_once 'includes/global.inc.php';
 ?>
 
 <html>
@@ -21,7 +21,12 @@
  
   		<h2>Post Something</h2>
 
+  		<?php if(isset($_SESSION['logged_in'])) : ?>
+		<?php $user = unserialize($_SESSION['user']); ?>
+		<?php endif; ?>
+
   		<?php
+
 		$dbName="BMCOMBER_CS142Final";        
 		$admin_username = "bmcomber_admin";
 		$admin_password = "ourDB142";

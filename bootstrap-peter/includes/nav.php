@@ -17,7 +17,8 @@
    				    print '<li><a href="post.php">Post</a></li>';
 				} 
 				?>
-
+				</ul>
+				<ul class="nav" style="margin-left: 67%;">
 				<?php 
 				if(basename($_SERVER['PHP_SELF'])=="login.php"){
     				print '<li class="active"><a href="#">Login</a></li>';
