@@ -15,7 +15,13 @@ require_once 'includes/global.inc.php';
 	<div class="container">
 	<h1><a href="#">Blog Diggity!</a></h1>
 
-	<?php include 'includes/nav.php'; ?>
+	<?php
+	if(isset($_SESSION['logged_in'])){
+		include 'includes/nav-in.php'; 
+	} else {
+		include 'include/nav.php';
+	}
+	?>
 	
 	<div class="hero-unit">
  
@@ -96,15 +102,21 @@ require_once 'includes/global.inc.php';
 		$user = unserialize($_SESSION['user']);
 
 		$urlPath = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
-		?>
+		
 
-		<form action='post.php' method='post'>
-			Title: <input type='text' name='title' placeholder="Title to be displayed"><br>
-  			URL: <input type='text' name='link' size='75' placeholder="Please include the full URL"><br>
-  			<input type='submit' name='btnSubmit' value='Submit'>
-		</form>
+		if(isset($_SESSION['logged_in'])){
 
- 
+			print "<form action='post.php' method='post'>
+				Title: <input type='text' name='title' placeholder='Title to be displayed'><br>
+  				URL: <input type='text' name='link' size='75' placeholder='Please include the full URL'><br>
+  				<input type='submit' name='btnSubmit' value='Submit'>
+			</form>";
+
+		} else {
+			print 'You are not logged in. <a href="login.php">Log In</a> | <a href="register.php">Register</a>';
+		}
+ 		?>
+
  	</div>
 	</div>	<!--Main container-->
 

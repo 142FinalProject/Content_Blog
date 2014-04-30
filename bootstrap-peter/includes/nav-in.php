@@ -1,3 +1,6 @@
+<?php if(isset($_SESSION['logged_in'])) : ?>
+<?php $user = unserialize($_SESSION['user']); ?>
+<?php endif; ?>
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
@@ -20,18 +23,14 @@
 			</ul>
 			<ul class="nav" style="float:right;">
 				<?php 
-				if(basename($_SERVER['PHP_SELF'])=="login.php"){
-    				print '<li class="active"><a href="#">Login</a></li>';
-				} else {
-    				print '<li><a href="login.php">Login</a></li>';
-				} 
+    			print '<li><a href="#">' . $user->username . '</a></li>'; 
 				?>
-
+				
 				<?php
-				if(basename($_SERVER['PHP_SELF'])=="register.php"){
-    				print '<li class="active"><a href="#">Register</a></li>';
+				if(basename($_SERVER['PHP_SELF'])=="logout.php"){
+    				print '<li class="active"><a href="#">Logout</a></li>';
 				} else {
-    				print '<li><a href="register.php">Register</a></li>';
+    				print '<li><a href="logout.php">Logout</a></li>';
 				}
 				?> 
 			</ul>

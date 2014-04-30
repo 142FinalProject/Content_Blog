@@ -76,7 +76,13 @@ if(isset($_POST['submit-form'])) {
 	<div class="container">
 	<h1><a href="#">Blog Diggity!</a></h1>
 
-	<?php include 'includes/nav.php'; ?>
+	<?php
+	if(isset($_SESSION['logged_in'])){
+		include 'includes/nav-in.php'; 
+	} else {
+		include 'includes/nav.php';
+	}
+	?>
 	
 	<div class="hero-unit">
     	<h2>Register</h2>
