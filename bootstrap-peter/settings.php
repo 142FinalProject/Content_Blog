@@ -45,9 +45,9 @@ if(isset($_POST['submit-settings'])) {
     	<h2>Settings</h2>
 
     	<?php echo $message; ?>
-
+    	<?php echo "Current Email Address: " . $email; ?>
 		<form action="settings.php" method="post">
-			E-Mail: <input type="text" value="<?php echo $email; ?>" name="email" /><br/>
+			E-Mail: <input type="text" value="" name="email" placeholder="Enter a new email address"/><br/>
 			<input type="submit" value="Update" name="submit-settings" />
 		</form>
 	

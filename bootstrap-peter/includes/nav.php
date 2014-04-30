@@ -26,7 +26,7 @@
 				} 
 				?>
 				</ul>
-				<ul class="nav" style="margin-left: 53%;">
+				<ul class="nav" style="float:right;">
 				<?php 
 				if(basename($_SERVER['PHP_SELF'])=="login.php"){
     				print '<li class="active"><a href="#">Login</a></li>';
