@@ -17,8 +17,16 @@
    				    print '<li><a href="post.php">Post</a></li>';
 				} 
 				?>
+
+				<?php 
+				if(basename($_SERVER['PHP_SELF'])=="history.php"){
+    				print '<li class="active"><a href="#">Account History</a></li>';
+				} else {
+   				    print '<li><a href="#">Account History</a></li>';
+				} 
+				?>
 				</ul>
-				<ul class="nav" style="margin-left: 67%;">
+				<ul class="nav" style="margin-left: 53%;">
 				<?php 
 				if(basename($_SERVER['PHP_SELF'])=="login.php"){
     				print '<li class="active"><a href="#">Login</a></li>';
