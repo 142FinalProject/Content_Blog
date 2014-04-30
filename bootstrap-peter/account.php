@@ -15,8 +15,15 @@ require_once 'includes/global.inc.php';
 
 	<div class="container">
 	<h1><a href="index.php">Blog Diggity!</a></h1>
+        
 
-	<?php include 'includes/nav.php'; ?>
+	<?php
+	if(isset($_SESSION['logged_in'])){
+		include 'includes/nav-in.php'; 
+	} else {
+		include 'includes/nav.php';
+	}
+	?>
 	
 	<div class="hero-unit">
     	<h2>Welcome to Blog Diggity</h2>

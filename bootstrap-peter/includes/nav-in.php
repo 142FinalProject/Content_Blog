@@ -19,11 +19,16 @@
 				} else {
    				    print '<li><a href="post.php">Post</a></li>';
 				} 
-				?>
+				?>                         
 			</ul>
 			<ul class="nav" style="float:right;">
 				<?php 
-    			print '<li><a href="#">' . $user->username . '</a></li>'; 
+
+                        	if(basename($_SERVER['PHP_SELF'])=="account.php"){
+    				print '<li class="active"><a href="#">' . $user->username . '</a></li>';
+				} else {
+    				print '<li><a href="account.php">' . $user->username . '</a></li>';
+				}
 				?>
 				
 				<?php

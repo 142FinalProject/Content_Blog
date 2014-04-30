@@ -17,14 +17,6 @@
    				    print '<li><a href="post.php">Post</a></li>';
 				} 
 				?>
-
-				<?php 
-				if(basename($_SERVER['PHP_SELF'])=="history.php"){
-    				print '<li class="active"><a href="#">Account History</a></li>';
-				} else {
-   				    print '<li><a href="#">Account History</a></li>';
-				} 
-				?>
 				</ul>
 				<ul class="nav" style="float:right;">
 				<?php 
