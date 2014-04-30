@@ -48,8 +48,8 @@
 		}
 
 		//initialize php variables used in the form
-		$userID = 0;
-		$username = "jtbrenna";
+		$userID = $user->id;
+		$username = $user->username;
 		$title = "";
 		$link = "";
 
