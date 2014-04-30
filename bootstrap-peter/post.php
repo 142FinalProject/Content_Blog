@@ -94,8 +94,8 @@
 		?>
 
 		<form action='post.php' method='post'>
-			Title: <input type='text' name='title'><br>
-  			Link: <input type='text' name='link' size='75'><br>
+			Title: <input type='text' name='title' placeholder="Title to be displayed"><br>
+  			URL: <input type='text' name='link' size='75' placeholder="Please include the full URL"><br>
   			<input type='submit' name='btnSubmit' value='Submit'>
 		</form>
 

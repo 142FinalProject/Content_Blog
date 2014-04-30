@@ -1,4 +1,4 @@
-&lt;?php 
+<?php 
 
 require_once 'includes/global.inc.php';
 
@@ -11,7 +11,7 @@ if(!isset($_SESSION['logged_in'])) {
 $user = unserialize($_SESSION['user']);
 
 //initialize php variables used in the form
-$email = $user-&gt;email;
+$email = $user->email;
 $message = "";
 
 //check to see that the form has been submitted
@@ -20,28 +20,39 @@ if(isset($_POST['submit-settings'])) {
 	//retrieve the $_POST variables
 	$email = $_POST['email'];
 
-	$user-&gt;email = $email;
-	$user-&gt;save();
+	$user->email = $email;
+	$user->save();
 
-	$message = "Settings Saved&lt;br/&gt;";
+	$message = "Settings Saved<br/>";
 }
 
 //If the form wasn't submitted, or didn't validate
 //then we show the registration form again
-?&gt;
+?>
 
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;Change Settings&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;?php echo $message; ?&gt;
+<html>
+<head>
+	<title>Change Settings</title>
+	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
+</head>
+<body>
+	<div class="container">
+	<h1><a href="#">Blog Diggity!</a></h1>
 
-	&lt;form action="settings.php" method="post"&gt;
+	<?php include 'includes/nav.php'; ?>
 
-	E-Mail: &lt;input type="text" value="&lt;?php echo $email; ?&gt;" name="email" /&gt;&lt;br/&gt;
-	&lt;input type="submit" value="Update" name="submit-settings" /&gt;
+	<div class="hero-unit">
+    	<h2>Settings</h2>
 
-	&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+    	<?php echo $message; ?>
+
+		<form action="settings.php" method="post">
+			E-Mail: <input type="text" value="<?php echo $email; ?>" name="email" /><br/>
+			<input type="submit" value="Update" name="submit-settings" />
+		</form>
+	
+ 	</div>
+	</div>	<!--Main container-->
+	
+</body>
+</html>
