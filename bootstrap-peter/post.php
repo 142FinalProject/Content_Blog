@@ -1,25 +1,14 @@
-<?php require_once 'includes/global.inc.php'; ?>
+<?php 
+//post.php
+
+//require_once 'includes/global.inc.php';
+?>
+
 <html>
 <head>
 	<title>Post</title>
 	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
 </head>
-<?php 
-$urlPath = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
-$name = "";
-$link = "";
-$title = "";
-
-if (isset($_POST["btnSubmit"])){
-    // Sanatize data coming from form
-    
-    $name = htmlentities($_POST["fname"],ENT_QUOTES,"UTF-8");
-	$title = htmlentities($_POST["title"],ENT_QUOTES,"UTF-8");
-    $link = htmlentities($_POST["link"],ENT_QUOTES,"UTF-8");
-    $result = "";
-                      
-}
-?>
 <body>
 	<!--This is the bootstrap framework for our site, subject to change, obvioiusly.  replace hrefs leading to "#" with their actual targets as we build them"-->
 
@@ -31,39 +20,85 @@ if (isset($_POST["btnSubmit"])){
 	<div class="hero-unit">
  
   		<h2>Post Something</h2>
+
+  		<?php
+		$dbName="BMCOMBER_CS142Final";        
+		$admin_username = "bmcomber_admin";
+		$admin_password = "ourDB142";
+		$dsn = 'mysql:host=webdb.uvm.edu;dbname=';
+
+		function dbConnect($dbName){
+    		global $datab, $dsn, $admin_username, $admin_password;
+
+    		if (!$datab) $datab = new PDO($dsn . $dbName, $admin_username, $admin_password); 
+        		if (!$datab) {
+          			return 0;
+        		} else {
+          			return $datab;
+        		}
+		} 
+
+		// create the PDO object
+		try {     
+    		$datab=dbConnect($dbName);
+    		//echo '<p>You are connected to the database!</p>';
+		} catch (PDOException $e) {
+    		$error_message = $e->getMessage();
+    		//echo "<p>A An error occurred while connecting to the database: $error_message </p>";
+		}
+
+		//initialize php variables used in the form
+		$userID = 0;
+		$username = "jtbrenna";
+		$title = "";
+		$link = "";
+
+		//check to see that the form has been submitted
+		if(isset($_POST['btnSubmit'])) { 
+
+			//retrieve the $_POST variables
+			//$username = $_POST['username'];
+			$title = $_POST['title'];
+			$link = $_POST['link'];
+
+			try { 
+
+            	//$datab->beginTransaction();
 		
-	<?php
-		if(isset($_SESSION['logged_in'])){
+		    	//$sql = "INSERT INTO tblPost (userID, username, title, link) VALUES ($userID, '$username', '$title', '$link')";
+		    	$sql = "INSERT INTO `BMCOMBER_CS142Final`.`tblPost` (`postID`, `userID`, `username`, `title`, `link`) VALUES (NULL, '$userID', '$username', '$title', '$link')";
+		    	
+            	$stmt = $datab->prepare($sql);
+        		echo $sql;
+            	$stmt->execute(); 
+	
+            	$primaryKey = $datab->lastInsertId(); 
+
+            	// all sql statements are done so lets commit to our changes 
+            	//$dataEntered = $datab->commit(); 
+
+        	} catch (PDOExecption $e) { 
+            	$datab->rollback(); 
+        	}
+
+        	//redirect them to the home page
+	    	header("Location: index.php");
+		}
+
+		//If the form wasn't submitted, or didn't validate
+		//then we show the registration form again
 
 		$user = unserialize($_SESSION['user']);
 
-		print("<form action=" .  $urlPath . " method='post'>
-				Title: <input type='text' name='title'><br>
-  				Link: <input type='text' name='link' size='75'><br>
-  				<input type='submit' name='btnSubmit' value='Submit' method='post' action=''>
-				</form>");
+		$urlPath = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
+		?>
 
-			if (isset($_POST["btnSubmit"])){
+		<form action='post.php' method='post'>
+			Title: <input type='text' name='title'><br>
+  			Link: <input type='text' name='link' size='75'><br>
+  			<input type='submit' name='btnSubmit' value='Submit'>
+		</form>
 
-				print("<h6>" . $user . " posted:</h6>");
-        	    $result = substr($link, 0, 4);
-
-        		if ($result == "http"){
-
-					print("<h3><a href='" . $link . "'>" . $title . "</a></h3>");
-
-        		}else{
-
-        			print("<h3><a href='http://" . $link . "'>" . $title . "</a></h3>");
-
-        		}
-			}
-		}else{
-
-			print("<p>You must be logged in to post. <a href='login.php'>Log In</a> |  <a href='register.php'>Register</a></p>");
-		}
-
-	?>
  
  	</div>
 	</div>	<!--Main container-->
