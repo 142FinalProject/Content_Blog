@@ -6165,7 +6165,3 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
-.posted {
-  display: inline-block;
-  color:red;
-}
