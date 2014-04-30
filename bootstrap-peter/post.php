@@ -19,7 +19,7 @@ require_once 'includes/global.inc.php';
 	if(isset($_SESSION['logged_in'])){
 		include 'includes/nav-in.php'; 
 	} else {
-		include 'include/nav.php';
+		include 'includes/nav.php';
 	}
 	?>
 	

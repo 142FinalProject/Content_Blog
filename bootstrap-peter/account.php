@@ -26,14 +26,14 @@ require_once 'includes/global.inc.php';
 	?>
 	
 	<div class="hero-unit">
-    	<h2>Welcome to Blog Diggity</h2>
- 
-   	 	<?php if(isset($_SESSION['logged_in'])) : ?>
+    	<h2>   	 	<?php if(isset($_SESSION['logged_in'])) : ?>
 		<?php $user = unserialize($_SESSION['user']); ?>
-			Hello, <?php echo $user->username; ?>. You are logged in. <a href="logout.php">Logout</a> | <a href="settings.php">Change Email</a>
-		<?php else : ?>
-			You are not logged in. <a href="login.php">Log In</a> | <a href="register.php">Register</a>
-		<?php endif; ?>
+            <h2>Account</h2>
+            
+            <p><a href="settings.php">Change Email</a></p>
+            <?php endif; ?>
+
+		
  
  	</div>
 
@@ -41,7 +41,7 @@ require_once 'includes/global.inc.php';
  				
  		
  		<div class="posted">
- 			
+                    <p>Your Posts:</p>	
 		<!--This is where posts are formatted to be displayed, populate variables with sql queries-->
 
 		<?php
@@ -80,7 +80,7 @@ require_once 'includes/global.inc.php';
       		$res = mysql_query("SELECT * FROM tblPost WHERE userID='$user->id'");
 	  
       		while($row=mysql_fetch_array($res)){
-	  			print("<h6>" . $row["username"] . " posted:</h6>");
+	  			print("<h6>Posted on: </h6>");
          		$result = substr($row["link"], 0, 4);
          		if ($result == "http"){
 					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
