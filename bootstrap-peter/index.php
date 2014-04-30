@@ -38,18 +38,49 @@ require_once 'includes/global.inc.php';
 		<!--This is where posts are formatted to be displayed, populate variables with sql queries-->
 
 		<?php
-			$name='username';
-			$link='http://url.com';
-			$title='Look at this link I found today!';
+			// $name='username';
+			// $link='http://url.com';
+			// $title='Look at this link I found today!';
 
 
-			print("<h6>" . $name . " posted:</h6>");
-        $result = substr($link, 0, 4);
-        if ($result == "http"){
-			print("<h4><a href='" . $link . "'>" . $title . "</a></h4>");
-        }else{
-        	print("<h4><a href='http://" . $link . "'>" . $title . "</a></h4>");
-        }
+			$dbName="BMCOMBER_CS142Final";        
+			$admin_username = "bmcomber_admin";
+			$admin_password = "ourDB142";
+			$dsn = 'mysql:host=webdb.uvm.edu;dbname=';
+
+			function dbConnect($dbName){
+    			global $datab, $dsn, $admin_username, $admin_password;
+
+    			// create the PDO object
+    			if (!$datab) $datab = new PDO($dsn . $dbName, $admin_username, $admin_password); 
+        			if (!$datab) {
+          				return 0;
+        			} else {
+          				return $datab;
+        			}
+			} 
+
+			try {     
+    			$datab=dbConnect($dbName);
+    			//echo '<p>You are connected to the database!</p>';
+			} catch (PDOException $e) {
+    			$error_message = $e->getMessage();
+    			//echo "<p>A An error occurred while connecting to the database: $error_message </p>";
+			}
+
+	  		mysql_connect("webdb.uvm.edu", $admin_username, $admin_password);
+	  		mysql_select_db("BMCOMBER_CS142Final");
+      		$res = mysql_query("SELECT * FROM tblPost");
+	  
+      		while($row=mysql_fetch_array($res)){
+	  			print("<h6>" . $row["username"] . " posted:</h6>");
+         		$result = substr($row["link"], 0, 4);
+         		if ($result == "http"){
+					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+         		}else{
+         			print("<h4><a href='http://" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+         		}
+	  		}
 		?>
 
  		</div>
