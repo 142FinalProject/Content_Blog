@@ -76,27 +76,37 @@ require_once 'includes/global.inc.php';
 
 	  		mysql_connect("webdb.uvm.edu", $admin_username, $admin_password);
 	  		mysql_select_db("BMCOMBER_CS142Final");
-      		$res = mysql_query("SELECT * FROM tblPost");
 
-	  		print("<div class='span6'>");
-	  		print("<table class='table table-striped'>");
-      		while($row=mysql_fetch_array($res)){
- 				print("<tr>");
- 				print("<td>");
-	  			print("<h6>" . $row["username"] . " posted:</h6>");
-         		$result = substr($row["link"], 0, 4);
-         		if ($result == "http"){
-					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
-					print("</tr>");
-					print("</td>");
-         		}else{
-         			print("<h4><a href='http://" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
-   					print("</tr>");
-   					print("</td>");
-         		}
+      		$res = mysql_query("SELECT * FROM tblPost");
+      		$total = mysql_num_rows($res);
+
+      		while ($total >= 0){
+      			$res = mysql_query("SELECT * FROM tblPost WHERE postId = $total");
+
+	  			print("<div class='span6'>");
+	  			print("<table class='table table-striped'>");
+
+      			while($row=mysql_fetch_array($res)){
+ 					print("<tr>");
+ 					print("<td>");
+	  				print("<h6>" . $row["username"] . " posted:</h6>");
+         			$result = substr($row["link"], 0, 4);
+         			
+         			if ($result == "http"){
+						print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+						print("</tr>");
+						print("</td>");
+         			}else{
+         				print("<h4><a href='http://" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+   						print("</tr>");
+   						print("</td>");
+         			}
+	  			}
+	  			print("</table>");
+	  			print("</div>");
+
+	  			$total--;
 	  		}
-	  		print("</table>");
-	  		print("</div>");
 		?>
 
  		</div>
