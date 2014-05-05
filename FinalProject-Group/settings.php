@@ -34,6 +34,7 @@ if(isset($_POST['submit-settings'])) {
 <head>
 	<title>Change Settings</title>
 	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
+	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<div class="container">

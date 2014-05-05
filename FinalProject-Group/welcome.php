@@ -17,6 +17,7 @@ $user = unserialize($_SESSION['user']);
 <head>
 	<title>Welcome <?php echo $user->username; ?></title>
 	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
+	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<!--This is the bootstrap framework for our site, subject to change, obvioiusly.  replace hrefs leading to "#" with their actual targets as we build them"-->
