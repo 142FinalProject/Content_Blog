@@ -60,6 +60,6 @@ if(isset($_POST['submit-settings'])) {
 	
  	</div>
 	</div>	<!--Main container-->
-	
+<?PHP include('includes/footer.php');?>	
 </body>
 </html>

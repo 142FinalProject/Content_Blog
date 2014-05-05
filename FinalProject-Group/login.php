@@ -59,6 +59,7 @@ if(isset($_POST['submit-login'])) {
    	 	
  	</div>
 	</div>	<!--Main container-->
-
+        <div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="img/YourAdHere.png" alt="Your Ad Here"></a></div>
+<?PHP include('includes/footer.php');?>
 </body>
 </html>

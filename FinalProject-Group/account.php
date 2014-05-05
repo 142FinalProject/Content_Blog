@@ -109,6 +109,6 @@ require_once 'includes/global.inc.php';
 		<!--Import jquery and bootstrap-->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="js/bootstrap.js"></script>
-
+<?PHP include('includes/footer.php');?>
 </body>
 </html>
