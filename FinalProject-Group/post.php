@@ -118,7 +118,7 @@ require_once 'includes/global.inc.php';
 		<!--Import jquery and bootstrap-->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="js/bootstrap.js"></script>
-                <div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="img/YourAdHere.png" alt="Your Ad Here"></a></div>
+<div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="img/YourAdHere.png" alt="Your Ad Here"></a></div>
 <?PHP include('includes/footer.php');?>
 </body>
 </html>
