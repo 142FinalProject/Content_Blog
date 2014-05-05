@@ -108,6 +108,6 @@ if(isset($_POST['submit-form'])) {
 		<script src="js/bootstrap.js"></script>
 
 </body>
-<div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="img/YourAdHere.png" alt="Your Ad Here"></a></div>
+<div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="http://www.uvm.edu/~bmcomber/cs142/assignment7/Content_Blog/FinalProject-Group/img/YourAdHere.png" alt="Your Ad Here"></a></div>
 <?PHP include('includes/footer.php');?>
 </html>
