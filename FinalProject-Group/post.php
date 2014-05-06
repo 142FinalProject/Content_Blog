@@ -108,8 +108,7 @@ require_once 'includes/global.inc.php';
 			</form>";
 
 		} else {
-			print 'You must log in to post.</br>';
-			print 'You are not logged in. <a href="login.php">Log In</a> | <a href="register.php">Register</a>';
+			print 'You must log in to post. <a href="login.php">Log In</a> | <a href="register.php">Register</a>';
 		}
  		?>
 
