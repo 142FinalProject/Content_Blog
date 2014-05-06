@@ -3,7 +3,7 @@
 
 require_once 'includes/global.inc.php';
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title>Homepage</title>
@@ -90,10 +90,17 @@ require_once 'includes/global.inc.php';
  					print("<tr>");
  					print("<td>");
 	  				print("<h6>" . $row["username"] . " posted:</h6>");
+         			$result = substr($row["link"], 0, 4);
 
-					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
-					print("</tr>");
-					print("</td>");
+         			if ($result == "http"){
+						print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+
+         			}else{
+         				print("<h4><a href='http://" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
+   						
+         			}
+         			print("</tr>");
+   					print("</td>");
 	  			}
 
 	  			$total--;
