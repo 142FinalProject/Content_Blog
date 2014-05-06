@@ -3,7 +3,7 @@
 
 require_once 'includes/global.inc.php';
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Homepage</title>
