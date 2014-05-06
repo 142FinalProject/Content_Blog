@@ -23,7 +23,6 @@ $user = unserialize($_SESSION['user']);
 	<!--This is the bootstrap framework for our site, subject to change, obvioiusly.  replace hrefs leading to "#" with their actual targets as we build them"-->
 
 	<div class="container">
-	<h1><a href="index.php">Blog Diggity!</a></h1>
 
 	<?php
 	if(isset($_SESSION['logged_in'])){
@@ -42,7 +41,8 @@ $user = unserialize($_SESSION['user']);
 
 		<!--Import jquery and bootstrap-->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-                <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.js"></script>
+<div id="image"><a href="mailto:bmcomber@uvm.edu?Subject=Ad%20Space" target="_top"><img src="http://www.uvm.edu/~bmcomber/cs142/assignment7/Content_Blog/FinalProject-Group/img/YourAdHere.png" alt="Your Ad Here"></a></div>
 <?PHP include('includes/footer.php');?>
 </body>
 </html>
