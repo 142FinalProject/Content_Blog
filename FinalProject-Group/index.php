@@ -26,14 +26,14 @@ require_once 'includes/global.inc.php';
 	
 	<div class="hero-unit">
     	<h2>Welcome to Blog Diggity</h2>
- 
+ 		<p>Blog Diggity is a site that lets you share links with other users. All it takes is a quick registration and you can start sharing your favorite content on the internet, with the internet!</p>
    	 	<?php if(isset($_SESSION['logged_in'])) : ?>
 		<?php $user = unserialize($_SESSION['user']); ?>
 			Hello, <?php echo $user->username; ?>. You are logged in. <a href="logout.php">Logout</a> | <a href="settings.php">Change Email</a>
 		<?php else : ?>
 			You are not logged in. <a href="login.php">Log In</a> | <a href="register.php">Register</a>
 		<?php endif; ?>
- 
+ 		
  	</div>
 
  	<div class="span4">
