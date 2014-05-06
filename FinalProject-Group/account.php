@@ -79,7 +79,7 @@ require_once 'includes/global.inc.php';
 	  		mysql_select_db("BMCOMBER_CS142Final");
       		$res = mysql_query("SELECT * FROM tblPost WHERE userID='$user->id'");
 	  		
-	  		print("<div class='span6'>");
+	  		print("<div class='span11'>");
 	  		print("<table class='table table-striped'>");
       		while($row=mysql_fetch_array($res)){
       			print("<tr>");

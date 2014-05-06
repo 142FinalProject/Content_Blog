@@ -80,7 +80,7 @@ require_once 'includes/global.inc.php';
       		$res = mysql_query("SELECT * FROM tblPost");
       		$total = mysql_num_rows($res);
 
-      		print("<div class='span6'>");
+      		print("<div class='span11'>");
 	  		print("<table class='table table-striped'>");
 
       		while ($total >= 0){
