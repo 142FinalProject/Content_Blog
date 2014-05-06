@@ -8,7 +8,7 @@ require_once 'includes/global.inc.php';
 <head>
 	<title>Homepage</title>
 	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css">
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="http://www.uvm.edu/~jtbrenna/cs142/Final%20Project/FinalProject-Group/favicon.ico">
 </head>
 <body>
 	<!--This is the bootstrap framework for our site, subject to change, obvioiusly.  replace hrefs leading to "#" with their actual targets as we build them"-->
