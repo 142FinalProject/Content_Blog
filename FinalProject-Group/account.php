@@ -88,13 +88,13 @@ require_once 'includes/global.inc.php';
          		$result = substr($row["link"], 0, 4);
          		if ($result == "http"){
 					print("<h4><a href='" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
-					print("</tr>");
-					print("</td>");
+
          		}else{
          			print("<h4><a href='http://" . $row["link"] . "'>" . $row["title"] . "</a></h4>");
-         			print("</tr>");
-					print("</td>");
+         			
          		}
+         		print("</tr>");
+				print("</td>");
 	  		}
 	  		print("</table>");
 	  		print("</div>");
